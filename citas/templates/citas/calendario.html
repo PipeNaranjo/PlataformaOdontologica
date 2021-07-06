@@ -1,0 +1,23 @@
+{% extends "SandraOrozcoApp/base.html" %}
+{% load static %}
+{% block content %}
+<div class="modal fade" id="eventoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agregar Evento</h5>
+        </div>
+        <div class="modal-body">
+          <form action="" method="POST">
+              {% csrf_token %}
+              <table style="color: black; margin:20px auto;">
+                    {{formulario.as_table}}
+              </table>
+              <input type="submit" id="agregar" value="Guardar"class="btn btn-primary"></input>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id='calendar'></div>
+{% endblock %}
