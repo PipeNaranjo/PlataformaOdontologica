@@ -7,7 +7,7 @@ from .models import Usuario
 # Create your views here.
 
 def home(request):
-
+    '''
     usuario=Usuario.objects.all()
     if not usuario.exists():
         Usuario.objects.create(correo="andresnaranjo3098@hotmail.com", contrasena="andres3098")
@@ -21,5 +21,5 @@ def home(request):
         if usuario.correo==request.POST.get("correo") and usuario.contrasena==request.POST.get("password"):
 
             usuario.login=True
-
+    '''
     return render(request,"SandraOrozcoApp/home.html")
