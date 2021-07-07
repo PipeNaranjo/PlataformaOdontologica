@@ -1,0 +1,31 @@
+{% extends "SandraOrozcoApp/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container" id="cards">
+    <div class="card" style="width: 18rem;">
+      <img src="{% static 'SandraOrozcoApp/img/R.png' %}" class="card-img-top" alt="..." >
+      <div class="card-body">
+        <h5 class="card-title">Whatsapp</h5>
+        <p class="card-text">Contactame vía Whatsapp.<br>Tenemos la mejor tecnología, además de un equipo humanos preparado de la mejor manera. </p>
+        <a href="https://wa.me/+573206919024?text=Buenas%20me%20gustaría%20una%20cita%20odontológica" class="btn btn-primary">Whatsapp</a>
+      </div>
+    </div>
+      <div class="card" style="width: 18rem;">
+        <img src="{% static 'SandraOrozcoApp/img/I.jpg' %}" class="card-img-top" alt="..." >
+        <div class="card-body">
+          <h5 class="card-title">Instagram</h5>
+          <p class="card-text">Te invito a ingresar a mi pagina de Instagram<br>Tenemos la mejor tecnología, además de un equipo humanos preparado de la mejor manera. </p>
+          <a href="https://instagram.com/drasandraorozco?igshid=ka0j4e4izf7r" class="btn btn-primary">Instagram</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="{% static 'SandraOrozcoApp/img/V.gif' %}" class="card-img-top" alt="..." >
+        <div class="card-body">
+          <h5 class="card-title">Correo Electronico</h5>
+          <p class="card-text">Tenemos la mejor tecnología, además de un equipo humanos preparado de la mejor manera. </p>
+          <!--CAMBIAR CORREO ELECTRONICO POR EL DE SANDRA OROZCO-->
+          <a href="odontologasandraorozco@gmail.com?subject=CONSULTA%20CITA%20ODONTOLÓGICA"  class="btn btn-primary">Correo Electronico</a>
+        </div>
+      </div>
+</div>
+{% endblock %}

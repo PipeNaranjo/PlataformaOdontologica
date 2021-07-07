@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('SandraOrozcoApp.urls')),
     path('informacion/',include('informacion.urls')),
     path('citas/', include('citas.urls')),
+    path('contactanos',include('contactanos.urls'))
 ]
