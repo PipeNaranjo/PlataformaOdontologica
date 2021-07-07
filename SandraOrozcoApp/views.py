@@ -23,3 +23,4 @@ def home(request):
             usuario.login=True
     '''
     return render(request,"SandraOrozcoApp/home.html")
+

@@ -25,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-o%mgrgs%3c(qx3q8u$pxqlbp%0_l%ch=i(@amoy473&zn!m&j5')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
+DEBUG = True
+#DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 ALLOWED_HOSTS = ['evening-garden-30788.herokuapp.com',
                 '127.0.0.1',
@@ -63,7 +64,7 @@ ROOT_URLCONF = 'SandraOrozco.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['SandraOrozcoApp/templates/',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -143,3 +144,4 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+LOGIN_REDIRECT_URL = '/'

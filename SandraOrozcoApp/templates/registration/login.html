@@ -1,0 +1,36 @@
+{% extends "SandraOrozcoApp/base.html" %}
+{% load static %}
+{% block content %}
+
+    {% if form.errors %}
+    <p>El usuario y la contraseña no coinciden. Por favor, vuelva a intentarlo.</p>
+    {% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+        <p>Tu cuenta no tiene acceso a esta página. Para proceder,
+            por favor ingresa con una cuenta que tenga accceso.</p>
+        {% else %}
+        <p>Por favor inicie sesión para ver esta página</p>
+        {% endif %}
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+
+        <div>
+            <td>{{ form.username.label_tag }}</td>
+            <td>{{ form.username }}</td>
+        </div>
+        <div>
+            <td>{{ form.password.label_tag }}</td>
+            <td>{{ form.password }}</td>
+        </div>
+
+        <div>
+            <input type="submit" value="Ingresar" />
+            <input type="hidden" name="next" value="{{ next }}" />
+        </div>
+    </form>
+    
+{% endblock %}
