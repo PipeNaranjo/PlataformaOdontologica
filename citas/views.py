@@ -1,4 +1,4 @@
-from citas.forms import Formulario_Evento
+from citas.forms import FormularioEvento
 from django.shortcuts import render
 from citas.models import Evento
 
@@ -6,10 +6,10 @@ from citas.models import Evento
 
 def citas(request):
 
-    form =Formulario_Evento()
+    form =FormularioEvento()
 
     if request.method == 'POST':
-        form=Formulario_Evento(data=request.POST)
+        form=FormularioEvento(data=request.POST)
 
         if form.is_valid():
             n=request.POST.get("nombre")

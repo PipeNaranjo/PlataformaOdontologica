@@ -1,7 +1,7 @@
 from django import forms
 
 
-class Formulario_Evento(forms.Form):
+class FormularioEvento(forms.Form):
     nombre=forms.CharField(label="Nombre paciente",required=True, widget=forms.TextInput(attrs={'placeholder': 'Nombre'}))
     fecha=forms.CharField(label="Fecha", required=True)
     hora=forms.CharField(label="Hora",required=True,widget=forms.TextInput(attrs={'placeholder': 'Formato 00:00'}))

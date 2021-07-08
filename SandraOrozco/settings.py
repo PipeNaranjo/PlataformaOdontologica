@@ -25,8 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-o%mgrgs%3c(qx3q8u$pxqlbp%0_l%ch=i(@amoy473&zn!m&j5')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-#DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
+
+DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 ALLOWED_HOSTS = ['evening-garden-30788.herokuapp.com',
                 '127.0.0.1',
