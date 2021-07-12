@@ -86,7 +86,7 @@
           user-select: none;
 
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'fcicons' !important;
+  font-family: 'Helvetica, Arial, Verdana, Tahoma, sans-serif' !important;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -146,9 +146,6 @@
     background-color: transparent;
     border: 1px solid transparent;
     padding: 0.4em 0.65em;
-    font-size: 1em;
-    line-height: 1.5;
-    border-radius: 0.25em;
   }
 .fc .fc-button:focus {
     outline: 1px dotted;
