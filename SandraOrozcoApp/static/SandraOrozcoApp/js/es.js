@@ -1,7 +1,7 @@
 FullCalendar.globalLocales.push(function () {
   'use strict';
 
-  var es = {
+  return es = {
     code: 'es',
     week: {
       dow: 1, // Monday is the first day of the week.
@@ -21,7 +21,5 @@ FullCalendar.globalLocales.push(function () {
     moreLinkText: 'más',
     noEventsText: 'No hay eventos para mostrar',
   };
-
-  return es;
 
 }());

@@ -5,9 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     dateClick: function(info) {
         $('#eventoModal').modal('toggle');
         $('#id_fecha').val(info.dateStr);
-    },
-    eventClick: function(info){
-
     }
   });
   calendar.render();
@@ -17,14 +14,15 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function agregar(method){
-    hora = $('#id_hora').val().split(":")
-    minutos=parseInt(hora[1],10)+15;
+    var hora = $('#id_hora').val().split(":")
+    var minutos=parseInt(hora[1],10)+15;
+    var min ="";
     if (minutos >= 60){
       min="00";
     }else{
       min=minutos+"";
     }
-    evento={
+    var evento={
       title:$('#id_nombre').val(),
       start:$('#id_fecha').val()+ " "+$('#id_hora').val(),
       end:$('#id_fecha').val() +" "+hora[0]+":"+min,
@@ -34,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
     
-  };
+  }
 });
 
 function abrir() {

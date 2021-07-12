@@ -153,6 +153,8 @@
 .fc .fc-button:focus {
     outline: 1px dotted;
     outline: 5px auto -webkit-focus-ring-color;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25);
   }
 .fc .fc-button:not(:disabled) {
     cursor: pointer;
@@ -164,10 +166,6 @@
 
 .fc .fc-button:hover {
     text-decoration: none;
-  }
-.fc .fc-button:focus {
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25);
   }
 .fc .fc-button:disabled {
     opacity: 0.65;
@@ -641,6 +639,8 @@ A HORIZONTAL event
 
 :root {
   --fc-daygrid-event-dot-width: 8px;
+  --fc-list-event-dot-width: 10px;
+  --fc-list-event-hover-bg-color: #f5f5f5;
 }
 .fc-daygrid-day-frame:before, .fc-daygrid-day-events:before, .fc-daygrid-event-harness:before {
   content: "";
@@ -695,8 +695,8 @@ A HORIZONTAL event
 .fc .fc-daygrid-event-harness-abs {
     position: absolute;
     top: 0; /* fallback coords for when cannot yet be computed */
-    left: 0; /* */
-    right: 0; /* */
+    left: 0; 
+    right: 0; 
   }
 .fc .fc-daygrid-bg-harness {
     position: absolute;
@@ -1160,11 +1160,6 @@ A VERTICAL event
     border-bottom-color: transparent;
   }
 
-
-:root {
-  --fc-list-event-dot-width: 10px;
-  --fc-list-event-hover-bg-color: #f5f5f5;
-}
 .fc-theme-standard .fc-list {
     border: 1px solid #ddd;
     border: 1px solid var(--fc-border-color, #ddd);
