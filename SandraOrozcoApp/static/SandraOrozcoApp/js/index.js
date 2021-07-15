@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     
   });
-  calendar.setOptions('locale','Es');
   calendar.render();
 
   $('#agregar').click(function(){
