@@ -1,12 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
   var calendar = new FullCalendar.Calendar(calendarEl, {
-    
+
     dateClick: function(info) {
         $('#eventoModal').modal('toggle');
         $('#id_fecha').val(info.dateStr);
-    }
+    },
+    
   });
+  calendar.setOptions('locale','Es');
   calendar.render();
 
   $('#agregar').click(function(){
@@ -22,24 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }else{
       min=minutos+"";
     }
-    var evento={
+    calendar.addEvent({
       title:$('#id_nombre').val(),
       start:$('#id_fecha').val()+ " "+$('#id_hora').val(),
       end:$('#id_fecha').val() +" "+hora[0]+":"+min,
       descripcion: $('#id_email').val(),
-      celular: $('id_celular').val(),
-    }
-    
-
-    
+      celular: $('id_celular').val(),});
   }
 });
-
-function abrir() {
-
-  $('#loginModal').modal('toggle');
-    
-}
-function cerrar(){
-	document.getElementById("miModal").style.display="none";
-}

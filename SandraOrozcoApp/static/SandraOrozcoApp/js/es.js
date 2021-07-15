@@ -22,4 +22,4 @@ FullCalendar.globalLocales.push(function () {
     noEventsText: 'No hay eventos para mostrar',
   };
 
-}());
+});
