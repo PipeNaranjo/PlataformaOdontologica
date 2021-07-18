@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import citas
+from .views import Vista
 
 urlpatterns=[
-    path('',citas,name="citas"),
+    path('',Vista.as_view(),name="citas"),
 ]

@@ -74,3 +74,22 @@ html, body {
     max-width: 1100px;
     margin: 40px auto;
   }
+
+#login-form{
+    width: 100%;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 55px;
+    padding-top: 15px;
+}
+
+input {
+    width: 90%;
+    height: 30px;
+    margin: 0.5rem;
+  }

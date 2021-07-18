@@ -1,11 +1,11 @@
 FullCalendar.globalLocales.push(function () {
   'use strict';
 
-  return es = {
+  var esUs = {
     code: 'es',
     week: {
-      dow: 1, // Monday is the first day of the week.
-      doy: 4, // The week that contains Jan 4th is the first week of the year.
+      dow: 0, // Sunday is the first day of the week.
+      doy: 6, // The week that contains Jan 1st is the first week of the year.
     },
     buttonText: {
       prev: 'Ant',
@@ -22,4 +22,6 @@ FullCalendar.globalLocales.push(function () {
     noEventsText: 'No hay eventos para mostrar',
   };
 
-});
+  return esUs;
+
+}());
