@@ -5,11 +5,22 @@
 {% endblock extra_css %}
 {% block content %}
 {% if messages %}
-  <div class="alert alert-success">
-    {% for m in messages %}
-      <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ m }}</li>
-    {% endfor %}
-  </div>
+  {% if m.is_error %}
+    <div class="alert alert-danger">
+      {% for m in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ m }}</li>
+      {% endfor %}
+    </div>      
+        
+  {% else %}
+    <div class="alert alert-success">
+      {% for m in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ m }}</li>
+      {% endfor %}
+    </div>   
+  {% endif %}
+    
+  
 {% endif %}
 
 <div class="modal fade" id="eventoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -36,7 +47,7 @@
 
 {% block extra_js %} 
   <script src="{% static 'SandraOrozcoApp/lib/main.js' %}"></script>
-  <script type="module">
+  <script>
 
     document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');

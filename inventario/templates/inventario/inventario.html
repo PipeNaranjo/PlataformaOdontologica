@@ -1,0 +1,125 @@
+{% extends "SandraOrozcoApp/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+
+<style>
+    body {
+        padding: 15px;
+    }
+
+    .form input[type=reset] .form input[type=submit] {
+        padding: 12px;
+    }
+
+    .alert {
+        display: none;
+    }
+</style>
+{% endblock extra_css %}
+{% block content %}
+<header>
+    <h1>INVENTARIO</h1>
+</header>
+<div class="row">
+    <div class="col">
+        <form id="inventarioForm" method="POST">{% csrf_token %}
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Codigo del producto</label>
+                <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Codigo del producto"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Descripcion del producto</label>
+                <textarea class="form-control" id="descripcion" rows="3" name="descripcion"
+                    placeholder="Nombre del producto, especificaciones, etc." required></textarea>
+
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput2">Cantidad</label>
+                <input type="text" class="form-control" id="cantidad" name="cantidad" placeholder="Cantidad"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput3">Peso</label>
+                <input type="text" class="form-control" id="peso" name="peso"
+                    placeholder="Kilogramos / Libras / etc. " required>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput4">Fecha de caducidad</label>
+                <input type="text" class="form-control" id="fecha" name="fecha" placeholder="DD/MM/AAAA" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Estado del producto</label>
+                <select class="form-control" id="estado" name="estado" title="estado" required>
+                    <option>--seleccione el estado del producto--</option>
+                    <option>Verde</option>
+                    <option>Amarillo</option>
+                    <option>Rojo</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput5">Precio</label>
+                <input type="text" class="form-control" id="precio" name="precio" placeholder="60000" required>
+            </div>
+            <div class="form-group">
+                <input class="btn btn-danger" type="reset" value="Limpiar">
+                <input id="doRegister" class="btn btn-success" type="submit" value="Registrar">
+                <button type="button" class="btn btn-warning" onclick="eliminarFila()">Eliminar
+                    ultima fila</button>
+            </div>
+            <div class="alert"></div>
+        </form>
+    </div>
+    <div class="col">
+        <table class="table table-hover" id="inventarioTable">
+            <thead>
+                <tr>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Peso</th>
+                    <th scope="col">Fecha de caducidad</th>
+                    <th scope="col">Fecha de registro</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Precio</th>
+                </tr>
+                {% for producto in productos %}
+                    <tr>
+                        <th scope="col">{{ producto.codigo }}</th>
+                        <th scope="col">{{ producto.descripcion }}</th>
+                        <th scope="col">{{ producto.cantidad }}</th>
+                        <th scope="col">{{ producto.peso }}</th>
+                        <th scope="col">{{ producto.fechaCaducidad }}</th>
+                        <th scope="col">{{ producto.fechaRegistro }}</th>
+                        <th scope="col">{{ producto.estado }}</th>
+                        <th scope="col">{{ producto.precio }}</th>
+                        <th><input type="button" value="Eliminar" onclick="deleteRow(this)" /></th>
+                    </tr>
+                {% endfor %}
+            </thead>
+            <tbody></tbody>          
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %} 
+<script>
+    
+    function eliminarFila() {
+        var table = document.getElementById("inventarioTable");
+        var rowCount = table.rows.length;
+        //console.log(rowCount);
+
+        if (rowCount <= 1)
+            alert('No se puede eliminar el encabezado');
+        else
+            table.deleteRow(rowCount - 1);
+    }
+    function deleteRow(btn) {
+        var row = btn.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+</script>
+{% endblock extra_js %}

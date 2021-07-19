@@ -28,7 +28,7 @@
                     {% if user.is_authenticated %}
                         <li>Usuario: {{ user.get_username }}</li>
                         <br>
-                        <a class="btn btn-secondary" href="{% url 'logout'%}?next={{request.path}}">Cerrar Sesion</a>
+                        <a class="btn btn-secondary" href="{% url 'logout'%}?next={% url 'informacion' %}">Cerrar Sesion</a>
                     {% else %}
                         <a class="btn btn-secondary" href="{% url 'login'%}?next={% url 'citas' %}">Iniciar Sesion</a>
                     {% endif %} 

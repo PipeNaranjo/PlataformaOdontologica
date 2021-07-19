@@ -23,6 +23,7 @@ urlpatterns = [
     path('',include('informacion.urls')),
     path('citas/', include('citas.urls')),
     path('contactanos',include('contactanos.urls')),
+    path('inventario',include('inventario.urls')),
     path('accounts/', include(authUrl)),
     path('accounts/logout/',include(authUrl),name='logout'),
     path('accounts/password_change/',include(authUrl),name='password_change'),

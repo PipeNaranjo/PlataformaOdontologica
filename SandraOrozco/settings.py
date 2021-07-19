@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'informacion',
     'citas',
     'contactanos',
+    'inventario',
 ]
 
 DATE_INPUT_FORMATS=['%Y-%m-%d %h:%m:%s',

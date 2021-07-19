@@ -7,7 +7,7 @@
                 <a class="nav-link " id="div-btn1" href="{% url 'citas' %}">Agenda</a>
             </li>
             <li class="nav-item {% if request.path == '/gestionar/' %}active{% endif %}">
-                <a class="nav-link" id="div-btn2" href="#">Gestionar Pedidos</a>
+                <a class="nav-link" id="div-btn2" href="{% url 'inventario' %}">Gestionar Pedidos</a>
             </li>
             <li class="nav-item {% if request.path == '/caja/' %}active{% endif %}">
                 <a class="nav-link" id="div-btn3" href="#">Caja</a>

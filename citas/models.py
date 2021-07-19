@@ -1,7 +1,4 @@
-from datetime import timedelta
 from django.db import models
-from django.forms.fields import Field
-from SandraOrozco import settings
 
 # Create your models here.
 
