@@ -34,7 +34,9 @@
                             <a class="btn btn-secondary" href="{% url 'login'%}?next={% url 'citas' %}">Iniciar Sesion</a>
                         {% endif %} 
                     </nav>
-                    {% block content %}
+                    <div class="container">
+                        {% block content %}
+                    </div>
                     {% endblock %}
                 </div>
             </div>
@@ -44,6 +46,7 @@
                 <div class="row pt-5 pr-20">
                     <div class="text-center col-lg-6 col-md-12 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Contacto</h5>
+                    <h5 class="text-uppercase">test</h5>
                     <li>
                         Megacentro Pinares, Torre 2, Consultorio 902
                         <br>
