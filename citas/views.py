@@ -1,12 +1,11 @@
 from citas.forms import FormularioEvento
 from django.shortcuts import render
+from django.views.generic import ListView,FormView,TemplateView
 from citas.models import Evento
-from django.views.generic import ListView,FormView
-from django.contrib import messages
 
 # Create your views here.
 
-class Vista(FormView,ListView):
+class Vista(FormView,TemplateView):
     model = Evento
     template_name='citas/calendario.html'
     form_class = FormularioEvento
@@ -14,12 +13,12 @@ class Vista(FormView,ListView):
 
     def get(self,request,*args,**kwargs):
         form = self.form_class()
-        storage = messages.get_messages(request)
-        storage.used = False
-        return render(request, self.template_name, {'form':form})
+        eventos = Evento.objects.all()
+        return render(request, self.template_name, {'form':form,'object_list':eventos})
 
     def post(self,request,*args, **kwargs):
-
+        mensaje=''
+        error=False
         form = self.form_class(request.POST)
         if form.is_valid():
             n=request.POST.get("nombre")
@@ -36,15 +35,15 @@ class Vista(FormView,ListView):
 
             if ward:
                 self.model.objects.create(nombre=n,start=f,horaInicio=h,email=e,celular=c)
-                messages.success(request,'Registro exitoso')
+                mensaje= 'Registro exitoso'
                 
             else:
-                messages.error(request,'La hora %s no esta disponible en la fecha %s' %(h,f))
+                error = True
+                mensaje='La hora %s no esta disponible en la fecha %s' %(h,f)
         form = self.form_class()
-        return render(request, self.template_name, {'form':form})
+        eventos=Evento.objects.all()
+        return render(request, self.template_name, {'form':form,'mensaje':mensaje,'error':error,'object_list':eventos})
 
 
-    def get_queryset(self):
-        queryset = self.model.objects.all()
-        return queryset
+    
 

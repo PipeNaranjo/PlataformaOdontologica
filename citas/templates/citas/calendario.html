@@ -4,30 +4,42 @@
   <link rel="stylesheet" href="{% static 'SandraOrozcoApp/lib/main.css' %}"/>
 {% endblock extra_css %}
 {% block content %}
-{% if messages %}
-  {% if m.is_error %}
+{% if mensaje %}
+  {% if error %}
     <div class="alert alert-danger">
-      {% for m in messages %}
-        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ m }}</li>
-      {% endfor %}
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ mensaje }}</li>
     </div>      
-        
   {% else %}
     <div class="alert alert-success">
-      {% for m in messages %}
-        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ m }}</li>
-      {% endfor %}
+      <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ mensaje }}</li>
     </div>   
   {% endif %}
-    
   
 {% endif %}
-
+<div class="modal fade" id="modal-event" tabindex="-1" role="dialog" aria-labelledby="modal-eventLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="event-title"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+          <div id="event-description"></div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+      </div>
+  </div>
+  </div>
 <div class="modal fade" id="eventoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Agregar Evento</h5>
+          <h5 class="modal-title" id="modal-title">Agregar Evento</h5>
         </div>
         <div class="modal-body">
           
@@ -50,32 +62,36 @@
   <script>
 
     document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      
-      headerToolbar:{
-        rigth: 'prev,next',
-        center: 'title',
-        left: 'dayGridMonth,dayGridWeek,dayGridDay'
-      },
-      dateClick: function(info) {
-          $('#eventoModal').modal('toggle');
-          $('#id_fecha').val(info.dateStr);
-      },
-      events:[
-        {% for evento in object_list %}
-            {
-              title: "{{ evento.nombre }}",
-              start:"{{ evento.start }}"+" "+ "{{ evento.horaInicio }}",
-              end: "{{ evento.end }}" +" "+ "{{ evento.horaFinal }}",
-              descripcion: "{{ evento.email }}",
-              celular: "{{ evento.celular }}"
-            },
-        {% endfor %}
-          ]
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        
+        headerToolbar:{
+          rigth: 'prev,next',
+          center: 'title',
+          left: 'dayGridMonth,dayGridWeek,dayGridDay'
+        },
+        dateClick: function(info) {
+            $('#eventoModal').modal('toggle');
+            $('#id_fecha').val(info.dateStr);
+        },
+        eventClick: function(calEvent, jsEvent,view){
+          $('#event-title').text(calEvent.title);
+          $('#event-description').html(calEvent.description);
+          $('#modal-event').modal('toggle');
+        },
+        events: [
+          {% for evento in object_list %}
+              {
+                title: "{{ evento.nombre }}",
+                start:"{{ evento.start|date:'Y-m-d' }}",
+                end: "{{ evento.end|date:'Y-m-d' }}",
+                descripcion: "{{ evento.email }}",
+                celular: "{{ evento.celular }}",
+              },
+          {% endfor %}
+        ]
+      });
+      calendar.render();
     });
-    calendar.render();
-    calendar.setOption('locales','es');
-  });
 </script>
 {% endblock extra_js %}

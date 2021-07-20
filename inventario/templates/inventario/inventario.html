@@ -20,6 +20,11 @@
 {% block content %}
 <header>
     <h1>INVENTARIO</h1>
+    {% if error %}
+        <div class="alert alert-danger">
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ error }}</li>
+        </div>      
+    {% endif %}
 </header>
 <div class="row">
     <div class="col">
@@ -47,7 +52,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput4">Fecha de caducidad</label>
-                <input type="text" class="form-control" id="fecha" name="fecha" placeholder="DD/MM/AAAA" required>
+                <input type="text" class="form-control" id="fecha" name="fecha" placeholder="AAAA/MM/DD" required>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Estado del producto</label>
@@ -86,15 +91,15 @@
                 </tr>
                 {% for producto in productos %}
                     <tr>
-                        <th scope="col">{{ producto.codigo }}</th>
-                        <th scope="col">{{ producto.descripcion }}</th>
-                        <th scope="col">{{ producto.cantidad }}</th>
-                        <th scope="col">{{ producto.peso }}</th>
-                        <th scope="col">{{ producto.fechaCaducidad }}</th>
-                        <th scope="col">{{ producto.fechaRegistro }}</th>
-                        <th scope="col">{{ producto.estado }}</th>
-                        <th scope="col">{{ producto.precio }}</th>
-                        <th><input type="button" value="Eliminar" onclick="deleteRow(this)" /></th>
+                        <td scope="col">{{ producto.codigo }}</td>
+                        <td scope="col">{{ producto.descripcion }}</td>
+                        <td scope="col">{{ producto.cantidad }}</td>
+                        <td scope="col">{{ producto.peso }}</ttdr>
+                        <td scope="col">{{ producto.fechaCaducidad }}</td>
+                        <td scope="col">{{ producto.fechaRegistro }}</td>
+                        <td scope="col">{{ producto.estado }}</td>
+                        <td scope="col">{{ producto.precio }}</td>
+                        <td><a href="{% url 'eliminarProducto' producto.id %}" class="btn btn-danger">Eliminar</a></td>
                     </tr>
                 {% endfor %}
             </thead>

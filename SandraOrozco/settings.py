@@ -26,8 +26,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-o%mgrgs%3c(qx3
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
-
+#DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
+DEBUG = True
 ALLOWED_HOSTS = ['evening-garden-30788.herokuapp.com',
                 '127.0.0.1',
                 ]

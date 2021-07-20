@@ -5,7 +5,7 @@ from django.db.models.enums import Choices
 
 estados = [('Verde', 'Verde'),('Amarillo','Amarillo'),('Rojo','Rojo')]
 class Producto(models.Model):
-    codigo=models.CharField(max_length=50,blank=False,null=False)
+    codigo=models.CharField(max_length=50,blank=False,null=False,unique=True)
     descripcion=models.CharField(max_length=80,blank=True,null=True)
     cantidad=models.IntegerField(blank=False,null=False)
     peso=models.IntegerField(blank=True,null=False)
@@ -17,6 +17,9 @@ class Producto(models.Model):
     class Meta():
         verbose_name='producto'
         verbose_name_plural='productos'
+
+    def __str__(self):
+        return self.descripcion
 '''
     def save(self,*args,**kwargs):
         fechaC=str(self.fechaCaducidad).split('-')

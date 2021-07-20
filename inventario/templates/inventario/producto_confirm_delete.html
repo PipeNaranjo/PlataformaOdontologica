@@ -1,0 +1,11 @@
+{% extends "SandraOrozcoApp/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container" style="padding-bottom: 20%;padding-top: 10px;">
+    <form method="POST">
+        {% csrf_token %}
+        <p><strong>¿Está seguro que desea eliminar el registro {{ object }}?</strong></p>
+        <button type="submit" class="btn btn-danger">Confirmar</button>
+    </form>
+</div>
+{% endblock content %}
