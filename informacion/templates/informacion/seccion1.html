@@ -4,14 +4,18 @@
 <link rel="stylesheet" href="{% static 'SandraOrozcoApp/css/sec1.css' %}"/>
 {% endblock extra_css %}
 {% block content %}
+
 <div id="central-content">
+
     <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+      
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
       </div>
+
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img src="{% static 'SandraOrozcoApp/img/acc.jpeg' %}" class="d-block w-100" alt="Not Found" height="500">
@@ -26,6 +30,7 @@
           <img src="{% static 'SandraOrozcoApp/img/acc4.jpeg' %}" class="d-block w-100" alt="..." height="500">
         </div>
       </div>
+
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -34,31 +39,34 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
+      
     </div>
-<div class="container" id="cards">
-<div class="row">
-  <div class="card" style="width: 18rem;">
-    <img src="{% static 'SandraOrozcoApp/img/acc5.jpeg' %}" class="card-img-top" alt="..." >
-    <div class="card-body">
-      <h5 class="card-title">Profesionales</h5>
-      <p class="card-text">Consulta  Privada. <br> Cuando decides visitar Sandra Orozco Odontología estas seleccionando a profesionales con más de 10 años de experiencia. </p>
+  <div class="container-fluid">
+  <div class="container" id="cards">
+    <div class="row">
+      <div class="card" style="width: 18rem;">
+        <img src="{% static 'SandraOrozcoApp/img/acc5.jpeg' %}" class="card-img-top" alt="..." >
+        <div class="card-body">
+          <h5 class="card-title">Profesionales</h5>
+          <p class="card-text">Consulta  Privada. <br> Cuando decides visitar Sandra Orozco Odontología estas seleccionando a profesionales con más de 10 años de experiencia. </p>
+        </div>
+      </div>
+        <div class="card" style="width: 18rem;">
+          <img src="{% static 'SandraOrozcoApp/img/acc2.jpeg' %}" class="card-img-top" alt="..." >
+          <div class="card-body">
+            <h5 class="card-title">Odontóloga</h5>
+            <p class="card-text">Odontóloga Universidad Autónoma de Manizales , especialista  en rehabilitación oral integral.<br>23 años de egresada de pregrado y 14 de post grado. </p>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="{% static 'SandraOrozcoApp/img/1.jpeg' %}" class="card-img-top" alt="..." >
+          <div class="card-body">
+            <h5 class="card-title">Equipo</h5>
+            <p class="card-text">Tenemos la mejor tecnología, además de un equipo humanos preparado de la mejor manera. </p>
+          </div>
+        </div>
     </div>
   </div>
-    <div class="card" style="width: 18rem;">
-      <img src="{% static 'SandraOrozcoApp/img/acc2.jpeg' %}" class="card-img-top" alt="..." >
-      <div class="card-body">
-        <h5 class="card-title">Odontóloga</h5>
-        <p class="card-text">Odontóloga Universidad Autónoma de Manizales , especialista  en rehabilitación oral integral.<br>23 años de egresada de pregrado y 14 de post grado. </p>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img src="{% static 'SandraOrozcoApp/img/1.jpeg' %}" class="card-img-top" alt="..." >
-      <div class="card-body">
-        <h5 class="card-title">Equipo</h5>
-        <p class="card-text">Tenemos la mejor tecnología, además de un equipo humanos preparado de la mejor manera. </p>
-      </div>
-    </div>
-</div>
-</div>
+  </div>
 </div>
 {% endblock %}
