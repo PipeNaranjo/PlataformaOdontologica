@@ -24,6 +24,8 @@ urlpatterns = [
     path('citas/', include('citas.urls')),
     path('contactanos/',include('contactanos.urls')),
     path('inventario/',include('inventario.urls'),name="inventario"),
+    path('caja/',include('cajaMenor.urls')),
+    path('agenda/',include('agenda.urls')),
     path('accounts/', include(authUrl)),
     path('accounts/logout/',include(authUrl),name='logout'),
     path('accounts/password_change/',include(authUrl),name='password_change'),

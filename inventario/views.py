@@ -1,4 +1,4 @@
-from django.db import models
+import datetime
 from inventario.models import Producto
 from django.shortcuts import render
 from django.views.generic import TemplateView, DeleteView
@@ -24,6 +24,7 @@ class IVista(TemplateView,LoginRequiredMixin):
             cant=request.POST.get("cantidad")
             pe=request.POST.get("peso")
             fechaC=request.POST.get("fecha")
+            fechaR=datetime.datetime.now()
             pre=request.POST.get("precio")
 
             prod = self.model.objects.filter(codigo=cod)
@@ -32,7 +33,7 @@ class IVista(TemplateView,LoginRequiredMixin):
                 prods = self.model.objects.all()
                 return render(request,self.template_name,{"error":error,"productos":prods})
             else:
-                self.model.objects.create(codigo=cod,descripcion=desc,cantidad=cant,peso=pe, fechaCaducidad=fechaC, precio=pre)
+                self.model.objects.create(codigo=cod,descripcion=desc,cantidad=cant,peso=pe, fechaCaducidad=fechaC, precio=pre, fechaRegistro=fechaR)
                 prods = self.model.objects.all()
                 return render(request,self.template_name,{"productos":prods})
 

@@ -4,13 +4,13 @@
         <ul class="navbar-nav">
             
             <li class="nav-item {% if request.path == '/citas/' %}active{% endif %}">
-                <a class="nav-link " id="div-btn1" href="{% url 'citas' %}">Agenda</a>
+                <a class="nav-link " id="div-btn1" href="{% url 'agenda' %}">Agenda</a>
             </li>
             <li class="nav-item {% if request.path == '/gestionar/' %}active{% endif %}">
                 <a class="nav-link" id="div-btn2" href="{% url 'inventario' %}">Gestionar Pedidos</a>
             </li>
             <li class="nav-item {% if request.path == '/caja/' %}active{% endif %}">
-                <a class="nav-link" id="div-btn3" href="#">Caja</a>
+                <a class="nav-link" id="div-btn3" href="{% url 'cajaMenor' %}">Caja</a>
             </li>
         </ul>
 

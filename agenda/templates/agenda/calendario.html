@@ -16,7 +16,30 @@
   {% endif %}
   
 {% endif %}
+<div class="modal fade" id="modal-event" tabindex="-1" role="dialog" aria-labelledby="modal-eventLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="event-title"></h5>
+          
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                  {{ form.as_table }}
+            </table>
+            <input type="submit" id="agregar" value="Guardar"class="btn btn-secondary"></input>
+        </form>
+      </div>
+      <div class="modal-footer">
 
+      </div>
+      </div>
+  </div>
+  </div>
 <div class="modal fade" id="eventoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -54,16 +77,31 @@
         },
         dateClick: function(info) {
             $('#eventoModal').modal('toggle');
-            $('#id_fecha').val(info.dateStr);
+            $('#eventoModal #id_fecha').val(info.dateStr);
+            
+        },
+        eventClick: function(info){
+            
+            $('#id_nombre').val(info.event.extendedProps.nombre)
+            $('#id_fecha').val(info.event.extendedProps.fecha)
+            $('#id_precio').val(info.event.extendedProps.precio)
+            $('#id_celular').val(info.event.extendedProps.celular)
+            $('#id_email').val(info.event.extendedProps.descripcion)
+            //$('#id_hora').select(info.event.extendedProps.hora)
+            $('#modal-event').modal('toggle');
         },
         events: [
           {% for evento in object_list %}
               {
-                title: "{{ evento.horaInicio }}",
+                title: "{{ evento.horaInicio }} {{ evento.nombre }}",
                 start:"{{ evento.start|date:'Y-m-d' }}",
                 end: "{{ evento.end|date:'Y-m-d' }}",
                 descripcion: "{{ evento.email }}",
                 celular: "{{ evento.celular }}",
+                precio: "{{ evento.precio }}",
+                fecha: "{{ evento.start|date:'Y-m-d' }}",
+                nombre:"{{ evento.nombre }}",
+                hora:"{{ evento.horaInicio }}",
               },
           {% endfor %}
         ]

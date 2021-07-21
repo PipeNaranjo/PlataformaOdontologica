@@ -9,6 +9,7 @@ class Evento(models.Model):
     email= models.CharField(max_length=50,blank=False,null=False)
     celular=models.CharField(max_length=10,blank=True,null=True)
     start=models.DateField(blank=False,null=False)
+    precio=models.CharField(blank=True,null=True,max_length=20)
     horaInicio=models.CharField(max_length=5,blank=False,null=False)
     horaFinal=models.CharField(max_length=5,blank=False,null=False,default="00:00")
     end=models.DateField(blank=False,null=False)
@@ -35,3 +36,8 @@ class Evento(models.Model):
         self.horaFinal=hour+":"+min
         self.end = self.start
         super().save(*args,**kwargs)
+
+    def guardarPrecio(self,p,*args,**kwargs):
+        self.precio = p
+        super().save(*args,**kwargs)
+

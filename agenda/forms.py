@@ -12,6 +12,7 @@ class FormularioEvento(forms.Form):
     nombre=forms.CharField(label="Nombre paciente",required=True, widget=forms.TextInput(attrs={'placeholder': 'Nombre'}))
     fecha=forms.CharField(label="Fecha",required=True)
     hora=forms.ChoiceField(label="Hora",choices=horas)
+    precio=forms.CharField(label='Precio',required=True,widget=forms.TextInput(attrs={'placeholder': 'Precio'}))
     celular=forms.CharField(label="Celular",required=True,widget=forms.TextInput(attrs={'placeholder': 'Celular'}))
     email=forms.EmailField(label="Email contacto",required=True,widget=forms.TextInput(attrs={'placeholder': 'Email'}))
 
