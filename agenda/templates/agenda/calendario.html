@@ -20,7 +20,7 @@
   <div class="modal-dialog" role="document">
       <div class="modal-content">
       <div class="modal-header">
-          <h5 class="modal-title" id="event-title"></h5>
+          <h5 class="modal-title" id="event-title">Detalle de la cita</h5>
           
           <span aria-hidden="true">&times;</span>
           </button>
@@ -81,13 +81,12 @@
             
         },
         eventClick: function(info){
-            
             $('#id_nombre').val(info.event.extendedProps.nombre)
             $('#id_fecha').val(info.event.extendedProps.fecha)
             $('#id_precio').val(info.event.extendedProps.precio)
             $('#id_celular').val(info.event.extendedProps.celular)
             $('#id_email').val(info.event.extendedProps.descripcion)
-            //$('#id_hora').select(info.event.extendedProps.hora)
+            $('#id_hora').val(info.event.extendedProps.hora)
             $('#modal-event').modal('toggle');
         },
         events: [
