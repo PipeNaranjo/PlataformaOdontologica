@@ -1,0 +1,68 @@
+
+.card-border{
+    border: solid 10px white;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all ease-out 0.2s;
+}
+.card-border:hover{
+    transform: scale(1.05);
+}
+
+.text-shadow{
+    text-shadow: 0 3px 3px rgba(0,0,0,0.6);
+}
+#separator-amiibos{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+#separator-amiibos .content{
+    background: url(../img/bg-03.png);
+    width: 110%;
+    height: 100px;
+    margin-left: -5%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+#separator-amiibos-footer{
+    height: 20vw;
+}
+
+
+#amiibos{
+    background: url(../img/bg-01.png),url(../img/bg-03.png);
+    background-repeat: no-repeat, repeat;
+    background-position: bottom center, center center;
+    background-size: 100%, auto;
+}
+.amiibo{
+    cursor: pointer;
+    transition: all ease-out 0.2s;
+}
+.amiibo:hover{
+    transform: scale(1.05);
+}
+
+.amiibo-name{
+    background-color: rgba(0,0,0,0.4);
+    color: white;
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 15px;
+}
+
+#play{   
+    background: url(../img/bg-04.png);
+    background-color: rgb(255, 255, 219);
+    background-size: 40px 40px;
+}
+
+#footer{
+    background: url(../img/bg-04.png);
+    background-color: rgb(224, 144, 24);
+    background-size: 50px 50px;
+}
