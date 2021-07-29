@@ -29,7 +29,7 @@ class Producto(models.Model):
             self.estado="Verde"
         elif int(fechaC[1]) - int(fechaR[1]) <= 6 and int(fechaC[1]) - int(fechaR[1]) > 3:
             self.estado="Amarillo"
-        elif int(fechaC[2]) - int(fechaR[2]) <= 3:
+        elif int(fechaC[1]) - int(fechaR[1]) <= 3:
             self.estado="Rojo"
         
         super().save(*args,**kwargs)
