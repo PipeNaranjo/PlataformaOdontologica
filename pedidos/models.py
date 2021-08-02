@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models.enums import Choices
 
 # Create your models here.
 
@@ -9,6 +8,7 @@ class Producto(models.Model):
     descripcion=models.CharField(max_length=80,blank=True,null=True)
     cantidad=models.IntegerField(blank=False,null=False)
     peso=models.IntegerField(blank=True,null=False)
+    medida=models.CharField(max_length=20,blank=False,null=False,default="Gramos")
     fechaCaducidad=models.DateField(blank=False,null=False)
     fechaRegistro=models.DateField(blank=False,null=False)
     precio=models.IntegerField(blank=False,null=False)
