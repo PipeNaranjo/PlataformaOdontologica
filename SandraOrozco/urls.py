@@ -23,7 +23,7 @@ urlpatterns = [
     path('',include('informacion.urls')),
     path('citas/', include('citas.urls')),
     path('contactanos/',include('contactanos.urls')),
-    path('inventario/',include('inventario.urls'),name="inventario"),
+    path('inventario/',include('pedidos.urls'),name="inventario"),
     path('caja/',include('cajaMenor.urls')),
     path('agenda/',include('agenda.urls')),
     path('accounts/', include(authUrl)),

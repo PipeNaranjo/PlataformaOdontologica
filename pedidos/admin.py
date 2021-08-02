@@ -1,4 +1,4 @@
-from inventario.models import Producto
+from pedidos.models import Producto
 from django.contrib import admin
 
 # Register your models here.

@@ -9,82 +9,87 @@
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'SandraOrozcoApp/css/styles.css' %}"/>
-        
+        <link rel="stylesheet" href="{% static 'SandraOrozcoApp/css/main.css' %}">
         {% block extra_css %}
         {% endblock extra_css %}
     </head>
     <body>
-        <div class="container-fluid">
-            <div class="row">
-                <div id="content" class="col-lg-12">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
-                        <div class="collapse navbar-collapse responsive" id="navbarNav">
-                            
-                            {% if user.is_authenticated %}
-                                {% include 'SandraOrozcoApp/barraLogin.html' %}
-                            {% else %}
-                                {% include 'SandraOrozcoApp/barraSinLogin.html' %}
-                            {% endif %} 
-                        </div>
-                        {% if user.is_authenticated %}
-                            <li>Usuario: {{ user.get_username }}</li>
-                            <br>
-                            <a class="btn btn-secondary" href="{% url 'logout'%}?next={% url 'informacion' %}">Cerrar Sesion</a>
-                        {% else %}
-                            <a class="btn btn-secondary" href="{% url 'login'%}?next={% url 'agenda' %}">Iniciar Sesion</a>
-                        {% endif %} 
-                    </nav>
-
-                    {% block content %}
-                    
-                    {% endblock %}
-                </div>
-            </div>
-
-
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="container-fluid">
-            <footer class="bg-light text-center text-lg-start">
-                <div class="row pt-5 pr-20">
-                    <div class="text-center col-lg-6 col-md-12 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Contacto</h5>
-                    <h5 class="text-uppercase">test4</h5>
-                    <li>
-                        Megacentro Pinares, Torre 2, Consultorio 902
-                        <br>
-                        Pereira, Risaralda.
-                    </li>
-                    <li>
-                        <a href="https://wa.me/+573206919024?text=Buenas%20me%20gustaría%20una%20cita%20odontológica">Celular:</a>
-                        <br>
-                        +57 320 6919024
-                    </li>
-                    <li>
-                        <a href="mailto:odontologasandraorozco@gmail.com?subject=CONSULTA%20CITA%20ODONTOLOGICA">Email:</a>
-                        <br>
-                        otontologasandraorozco@gmail.com
-                    </li>
-                    </div>
-                    <div class="text-center col-lg-6 col-md-12 mb-4 mb-md-0" style="width: 40%;">
-                    <p>
-                        <img src="{% static 'SandraOrozcoApp/img/acc6.jpeg' %}" class="w-100" width= "50" height= "80">
-                    </p>
-                    </div>
-                </div>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img src="{% static 'SandraOrozcoApp/img/logo.png' %}" alt="" width="70"> 
+              </a>
+        
+              <button class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toogle navigation">
                 
-                <div class="text-center" style="background-color: rgba(0, 0, 0, 0.2);">© 2021 Copyright:
-                <label class="text-dark">Sandra Orozco</label>
-                </div>
-            </footer>
+                <span class="navbar-toggler-icon"></span>
+        
+              </button>
+        
+              <div class="collapse navbar-collapse pr-3" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        {% include 'SandraOrozcoApp/barraLogin.html' %}
+                    {% else %}
+                        {% include 'SandraOrozcoApp/barraSinLogin.html' %}
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                        <a class="btn btn-light position-absolute end-0 position-relative" href="{% url 'logout'%}?next={% url 'informacion' %}">Cerrar Sesion</a>
+                    {% else %}
+                        <a class="btn btn-light position-absolute end-0 position-relative" href="{% url 'login'%}?next={% url 'agenda' %}">Iniciar Sesion</a>
+                    {% endif %}
+                  
+                </ul>
+              </div>
+        
+            </div>
+          </nav>
+        
+
+        {% block content %}
+                    
+        {% endblock %}
+               
+        
+        <!--Footer-->
+  <div id="footer" class="justify-content-md-center bg-dark text-white container-fluid">
+    <div class="container-fluid w-100 pt-4 shadow">
+      <div class="row justify-content-md-center justify-content-sm-center py-2">
+        <div class="col text-center font-weight-light ">
+          
+          <p>Megacentro Pinares, Torre 2, Consultorio 902</p>
+          <p>Pereira, Risaralda.</p>
+          
+          <p>                        
+            <a href="https://wa.me/+573206919024?text=Buenas%20me%20gustaría%20una%20cita%20odontológica">Celular:</a>
+            <br>
+            +57 320 6919024
+          </p>
+
+          <p>
+            <a href="mailto:odontologasandraorozco@gmail.com?subject=CONSULTA%20CITA%20ODONTOLOGICA">Email:</a>
+            <br>
+            otontologasandraorozco@gmail.com
+          </p>
         </div>
+      </div>
+      <div class="text-center container-fluid" style="background-color: rgba(0, 0, 0, 0.2);">© 2021 Copyright:
+        <label class="text-white">Sandra Orozco</label>
+      </div>
+    </div>
+  </div>
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+         <!--bootstrap y popper-->
+        <script src="{% static 'SandraOrozcoApp\js\popper.min.js' %}"></script>
+        <script src="{% static 'SandraOrozcoApp\js\bootstrap.min.js' %}"></script>
         {% block extra_js %} 
         {% endblock extra_js %}
         

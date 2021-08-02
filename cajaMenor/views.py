@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from citas.models import Evento
-from inventario.models import Producto
+from pedidos.models import Producto
 
 # Create your views here.
 

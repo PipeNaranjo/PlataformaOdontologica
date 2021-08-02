@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'informacion',
     'citas',
     'contactanos',
-    'inventario',
+    'pedidos',
     'cajaMenor',
     'agenda',
 ]
