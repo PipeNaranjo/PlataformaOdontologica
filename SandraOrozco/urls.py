@@ -20,6 +20,7 @@ from django.urls.conf import include
 authUrl='django.contrib.auth.urls'
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',include('SandraOrozcoApp.urls')),
     path('',include('informacion.urls')),
     path('citas/', include('citas.urls')),
     path('contactanos/',include('contactanos.urls')),
