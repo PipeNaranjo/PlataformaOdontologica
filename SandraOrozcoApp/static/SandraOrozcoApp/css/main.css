@@ -32,7 +32,6 @@
 
 
 #amiibos{
-    background: url(../img/bg-01.png),url(../img/bg-03.png);
     background-repeat: no-repeat, repeat;
     background-position: bottom center, center center;
     background-size: 100%, auto;
@@ -54,14 +53,12 @@
     border-radius: 15px;
 }
 
-#play{   
-    background: url(../img/bg-04.png);
+#play{ 
     background-color: rgb(255, 255, 219);
     background-size: 40px 40px;
 }
 
 #footer{
-    background: url(../img/bg-04.png);
     background-color: rgb(224, 144, 24);
     background-size: 50px 50px;
 }
