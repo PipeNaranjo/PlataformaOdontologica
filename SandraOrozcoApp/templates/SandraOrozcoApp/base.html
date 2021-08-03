@@ -40,9 +40,9 @@
                         {% include 'SandraOrozcoApp/barraSinLogin.html' %}
                     {% endif %}
                     {% if user.is_authenticated %}
-                        <a class="btn btn-light position-absolute end-0 position-relative" href="{% url 'logout'%}?next={% url 'informacion' %}">Cerrar Sesion</a>
+                        <a id="sesion" class="btn btn-light position-absolute end-0 position-relative" href="{% url 'logout'%}?next={% url 'informacion' %}">Cerrar Sesion</a>
                     {% else %}
-                        <a class="btn btn-light position-absolute end-0 position-relative" href="{% url 'login'%}?next={% url 'agenda' %}">Iniciar Sesion</a>
+                        <a id="sesion" class="btn btn-light position-absolute end-0 position-relative" href="{% url 'login'%}?next={% url 'agenda' %}">Iniciar Sesion</a>
                     {% endif %}
                   
                 </ul>

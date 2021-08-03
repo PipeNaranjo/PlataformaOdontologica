@@ -23,17 +23,21 @@ class IVista(TemplateView,LoginRequiredMixin):
             desc=request.POST.get("descripcion")
             cant=request.POST.get("cantidad")
             pe=request.POST.get("peso")
+            med=request.POST.get("medida")
             fechaC=request.POST.get("fecha")
             fechaR=datetime.datetime.now()
             pre=request.POST.get("precio")
-
+            if med == '--seleccione medida--':
+                error = "Medida incorrecta"
+                prods = self.model.objects.all()
+                return render(request,self.template_name,{"error":error,"productos":prods})
             prod = self.model.objects.filter(codigo=cod)
             if prod:
                 error = "Ya existe el producto con el codigo %s"%cod
                 prods = self.model.objects.all()
                 return render(request,self.template_name,{"error":error,"productos":prods})
             else:
-                self.model.objects.create(codigo=cod,descripcion=desc,cantidad=cant,peso=pe, fechaCaducidad=fechaC, precio=pre, fechaRegistro=fechaR)
+                self.model.objects.create(codigo=cod,descripcion=desc,cantidad=cant,peso=pe, fechaCaducidad=fechaC, precio=pre, fechaRegistro=fechaR,medida=med)
                 prods = self.model.objects.all()
                 return render(request,self.template_name,{"productos":prods})
         except ValueError as e:

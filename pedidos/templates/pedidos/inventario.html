@@ -20,12 +20,13 @@
 {% block content %}
 <header>
     <h1>INVENTARIO</h1>
-    {% if error %}
-        <div class="alert alert-danger">
-            <li>{{ error }}</li>
-        </div>      
-    {% endif %}
+    
 </header>
+{% if error %}
+    <div class="alert alert-danger" style="color: black;">
+        <li id="error" {% if error.tags %} class="{{ error.tags }}"{% endif %}>{{ error }}</li>
+    </div>      
+{% endif %}
 <div class="row">
     <div class="col">
         <form id="inventarioForm" method="POST">{% csrf_token %}
@@ -45,24 +46,27 @@
                 <input type="text" class="form-control" id="cantidad" name="cantidad" placeholder="Cantidad"
                     required>
             </div>
-            <div class="form-group">
-                <label for="exampleFormControlInput3">Peso</label>
-                <input type="text" class="form-control" id="peso" name="peso"
-                    placeholder="Kilogramos / Libras / etc. " required>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="exampleFormControlInput3">Peso</label>
+                    <input type="text" class="form-control" id="peso" name="peso"
+                        placeholder="Kilogramos / Libras / etc. " required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="exampleFormControlSelect1">Medida</label>
+                    <select class="form-control" id="medida" name="medida" required>
+                        <option>--seleccione medida--</option>
+                        <option>Gramos</option>
+                        <option>Mililitros</option>
+                    </select>
+                </div>
             </div>
+            
             <div class="form-group">
                 <label for="exampleFormControlInput4">Fecha de caducidad</label>
                 <input type="text" class="form-control" id="fecha" name="fecha" placeholder="AAAA/MM/DD" required>
             </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Estado del producto</label>
-                <select class="form-control" id="estado" name="estado" title="estado" required>
-                    <option>--seleccione el estado del producto--</option>
-                    <option>Verde</option>
-                    <option>Amarillo</option>
-                    <option>Rojo</option>
-                </select>
-            </div>
+            
             <div class="form-group">
                 <label for="exampleFormControlInput5">Precio</label>
                 <input type="text" class="form-control" id="precio" name="precio" placeholder="60000" required>
@@ -84,6 +88,7 @@
                     <th scope="col">Descripcion</th>
                     <th scope="col">Cantidad</th>
                     <th scope="col">Peso</th>
+                    <th scope="col">Medida</th>
                     <th scope="col">Fecha de caducidad</th>
                     <th scope="col">Fecha de registro</th>
                     <th scope="col">Estado</th>
@@ -94,7 +99,8 @@
                         <td scope="col">{{ producto.codigo }}</td>
                         <td scope="col">{{ producto.descripcion }}</td>
                         <td scope="col">{{ producto.cantidad }}</td>
-                        <td scope="col">{{ producto.peso }}</ttdr>
+                        <td scope="col">{{ producto.peso }}</td>
+                        <td scope="col">{{ producto.medida }}</td>
                         <td scope="col">{{ producto.fechaCaducidad }}</td>
                         <td scope="col">{{ producto.fechaRegistro }}</td>
                         <td scope="col">{{ producto.estado }}</td>
