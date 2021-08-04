@@ -34,11 +34,11 @@ class CajaVista(TemplateView,LoginRequiredMixin):
             
             mensaje=str(totalC-totalP)
             return render(request,self.template_name,{'citas':citas,'productos':productos,'error':error,'mensaje':mensaje})
-        except UnboundLocalError:
+        except UnboundLocalError as e:
             error =True
             mensaje = "No hay ningún registro en la fecha %s" %fecha
             return render(request,self.template_name,{'error':error,'mensaje':mensaje})
-        except ValidationError:
+        except ValidationError as e:
             error =True
             mensaje = "Formato de fecha incorrecto"
             return render(request,self.template_name,{'error':error,'mensaje':mensaje})
