@@ -22,10 +22,16 @@
         <h1>INVENTARIO</h1>
         
     </header>
-    {% if error %}
-        <div class="alert alert-danger" style="color: black;">
-            <li id="error" {% if error.tags %} class="{{ error.tags }}"{% endif %}>{{ error }}</li>
-        </div>      
+    {% if mensaje %}
+        {% if error %}
+            <div class="alert alert-danger">
+                <li id="error" {% if error.tags %} class="{{ error.tags }}"{% endif %}>{{ error }}</li>
+            </div>
+        {% else %}
+            <div class="alert alert-success">
+                <li id="mensaje" {% if mensaje.tags %} class="{{ mensaje.tags }}"{% endif %}>{{ mensaje }}</li>
+            </div>
+        {% endif %}
     {% endif %}
     <div class="row">
         <div class="col">
