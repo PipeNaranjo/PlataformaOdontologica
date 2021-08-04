@@ -6,10 +6,12 @@
 <header>
     <h1>Caja Menor</h1>
 </header>
-{% if error %}
-    <div class="alert alert-danger">
-        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ error }}</li>
-    </div>      
+{% if mensaje %}
+    {% if error %}
+        <div class="alert alert-danger">
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ mensaje }}</li>
+        </div>       
+    {% endif %}
 {% endif %}
 <div class="row">
     <div class="col">
