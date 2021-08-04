@@ -27,23 +27,28 @@ class IVista(TemplateView,LoginRequiredMixin):
             fechaC=request.POST.get("fecha")
             fechaR=datetime.datetime.now()
             pre=request.POST.get("precio")
+            error = False
             if med == '--seleccione medida--':
-                error = "Medida incorrecta"
+                mensaje = "Medida incorrecta"
+                error = True
                 prods = self.model.objects.all()
-                return render(request,self.template_name,{"error":error,"productos":prods})
+                return render(request,self.template_name,{"error":error,"productos":prods, "mensaje":mensaje})
             prod = self.model.objects.filter(codigo=cod)
             if prod:
-                error = "Ya existe el producto con el codigo %s"%cod
+                mensaje = "Ya existe el producto con el codigo %s"%cod
                 prods = self.model.objects.all()
-                return render(request,self.template_name,{"error":error,"productos":prods})
+                error = True
+                return render(request,self.template_name,{"error":error,"productos":prods,"mensaje":mensaje})
             else:
                 self.model.objects.create(codigo=cod,descripcion=desc,cantidad=cant,peso=pe, fechaCaducidad=fechaC, precio=pre, fechaRegistro=fechaR,medida=med)
                 prods = self.model.objects.all()
-                return render(request,self.template_name,{"productos":prods})
+                mensaje="Pedido Registrado"
+                return render(request,self.template_name,{"productos":prods,"mensaje":mensaje,"error":error})
         except ValueError as e:
-            error = "Valor incorrecto en un campo del formulario"
+            mensaje = "Valor incorrecto en un campo del formulario"
             prods = self.model.objects.all()
-            return render(request,self.template_name,{"error":error,"productos":prods})
+            error = True
+            return render(request,self.template_name,{"error":error,"productos":prods,"mensaje":mensaje})
 
 class EliminarProducto(DeleteView):
     model = Producto
