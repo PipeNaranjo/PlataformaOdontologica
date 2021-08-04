@@ -38,7 +38,3 @@ class CajaVista(TemplateView,LoginRequiredMixin):
             error =True
             mensaje = "No hay ningún registro en la fecha %s" %fecha
             return render(request,self.template_name,{'error':error,'mensaje':mensaje})
-        except ValidationError as e:
-            error =True
-            mensaje = "Formato de fecha incorrecto"
-            return render(request,self.template_name,{'error':error,'mensaje':mensaje})
