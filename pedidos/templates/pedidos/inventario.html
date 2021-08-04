@@ -25,7 +25,7 @@
     {% if mensaje %}
         {% if error %}
             <div class="alert alert-danger">
-                <li id="error" {% if error.tags %} class="{{ error.tags }}"{% endif %}>{{ error }}</li>
+                <li id="error" {% if error.tags %} class="{{ error.tags }}"{% endif %}>{{ mensaje }}</li>
             </div>
         {% else %}
             <div class="alert alert-success">
