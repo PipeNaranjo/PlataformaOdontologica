@@ -28,7 +28,7 @@
             </p>
             <div class="alert"></div>
         </form>
-        {% if mensaje %}
+        {% if not error %}
             <div class="container">
                 <p id="total"><strong>TOTAL: {{ mensaje }}</strong></p>
             </div>
