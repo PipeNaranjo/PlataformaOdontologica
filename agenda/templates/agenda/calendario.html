@@ -7,11 +7,11 @@
 {% if mensaje %}
   {% if error %}
     <div class="alert alert-danger">
-        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ mensaje }}</li>
+        <li id="mensaje" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ mensaje }}</li>
     </div>      
   {% else %}
     <div class="alert alert-success">
-      <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ mensaje }}</li>
+      <li id="mensaje" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ mensaje }}</li>
     </div>   
   {% endif %}
   
